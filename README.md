@@ -1,133 +1,141 @@
-# Job Portal
+# Job Portal 🚀
 
-## Overview
-The **Job Portal** is a full-stack MERN application that allows companies to post and manage job listings while enabling users to apply for suitable job opportunities. The platform features authentication, job searching, and category-wise filtering, all within a modern, fully responsive UI.
+A full-stack Job Portal application built using the MERN stack. The platform allows users to explore job opportunities, search and filter jobs, authenticate securely, and manage their applications.
 
-## Features
-- **Company Dashboard**: Employers can log in, post job listings, manage applications, and edit job details.
-- **User Authentication**: 
-  - **Normal Users**: Authentication via **Clerk Auth** for login and signup.
-  - **Companies**: Authentication via **JWT Auth**.
-- **Job Application Management**:
-  - Users can apply for jobs by uploading resumes stored in **Cloudinary**.
-  - Companies can **accept or reject** job applications after reviewing resumes.
-  - Companies can view the **list of applied users** for their job postings.
-  - Companies can make their **posted jobs invisible** if required.
-- **Search & Filter**: Powerful search functionality, including **category-wise filtering**.
-- **Error Monitoring**: Integrated **Sentry** for error tracking.
-- **Responsive UI/UX**: Fully responsive and modern design, optimized with **Tailwind CSS**.
-- **Backend**: Built with **Node.js, Express, and MongoDB**.
-- **Frontend**: Developed using **React and Tailwind CSS**.
-- **Deployment**: Hosted on **Vercel** (frontend) and **Node.js backend**.
+## ✨ Features
 
-## Tech Stack
-### Frontend:
-- React.js
-- Tailwind CSS (for styling and full responsiveness)
-- Clerk Auth (for user authentication)
+* 🔐 User authentication with Clerk
+* 🔎 Search and filter jobs
+* 💼 Browse available job opportunities
+* 📄 Resume upload functionality
+* ☁️ Cloudinary integration for file uploads
+* 🔒 Secure authentication and authorization
+* 📱 Responsive user interface
+* 🚨 Error monitoring with Sentry
 
-### Backend:
-- Node.js
-- Express.js
-- MongoDB
-- Cloudinary (for file storage)
-- Sentry (for error monitoring)
-- JWT Auth (for company authentication)
+## 🛠️ Tech Stack
 
-### Deployment:
-- **Frontend**: Vercel
-- **Backend**: Node.js with Express and MongoDB
+### Frontend
 
-## Installation & Setup
-### Prerequisites:
-- Node.js installed
-- MongoDB database setup
-- Cloudinary account configured
-- Clerk Auth credentials
-- JWT Auth setup for company login
+* React.js
+* Vite
+* Tailwind CSS
+* Clerk Authentication
 
-### Steps:
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/RishavK1/Job-Portal.git
-   cd job-portal
-   ```
-2. Install dependencies for both frontend and backend:
-   ```sh
-   cd client
-   npm install
-   cd ../server
-   npm install
-   ```
-3. Configure environment variables:
-   - Create a `.env` file in the `server` directory and add:
-     ```env
-     MONGO_URI=your_mongodb_connection_string
-     CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-     CLOUDINARY_API_KEY=your_cloudinary_api_key
-     CLOUDINARY_API_SECRET=your_cloudinary_api_secret
-     CLERK_SECRET_KEY=your_clerk_secret_key
-     JWT_SECRET=your_jwt_secret_key
-     ```
-4. Start the backend server:
-   ```sh
-   cd server
-   npm run server
-   ```
-5. Start the frontend:
-   ```sh
-   cd client
-   npm run dev
-   ```
-6. Open the application in your browser at `http://localhost:3000`.
+### Backend
 
-## Project Directory Structure
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* JWT
 
-### Frontend:
-```
-client/  # Frontend React application
-├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── context/
-│   ├── pages/
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── vite.config.js
-├── tailwind.config.js
-├── postcss.config.js
-├── vercel.json
-├── eslint.config.js
-├── index.html
+### Other Technologies
+
+* Cloudinary
+* Sentry
+* Git & GitHub
+
+## 📁 Project Structure
+
+```text
+Job-Portal/
+├── client/
+│   ├── src/
+│   ├── public/
+│   └── package.json
+│
+├── server/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── package.json
+│
+└── README.md
 ```
 
-### Backend:
-```
-server/  # Backend Node.js application
-├── config/
-├── controllers/
-├── middlewares/
-├── models/
-├── routes/
-├── utils/
-├── .gitignore
-├── package.json
-├── package-lock.json
-├── server.js
-├── vercel.json
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/adityacodes2425/Job-Portal.git
+cd Job-Portal
 ```
 
+### 2. Install frontend dependencies
 
-## Contributing
-Contributions are welcome! Feel free to fork this repository and create pull requests.
+```bash
+cd client
+npm install
+```
 
-## License
-This project is licensed under the MIT License.
+### 3. Create frontend environment variables
 
-## Contact
-For queries or support, feel free to reach out via [rishavkamboj75@gmail.com] or visit the GitHub repository.
+Create `.env` inside `client` and add your Clerk Publishable Key:
 
+```env
+VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+```
 
+### 4. Install backend dependencies
 
+```bash
+cd ../server
+npm install
+```
+
+### 5. Create backend environment variables
+
+Create a `.env` file inside the `server` folder:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+CLERK_SECRET_KEY=your_clerk_secret_key
+JWT_SECRET=your_jwt_secret
+```
+
+### 6. Run the application
+
+Start the backend:
+
+```bash
+cd server
+npm run server
+```
+
+Start the frontend in another terminal:
+
+```bash
+cd client
+npm run dev
+```
+
+## 🔐 Environment Variables
+
+Make sure `.env` files are added to `.gitignore` and never push API keys, database credentials, or secret keys to GitHub.
+
+## 🚀 Future Improvements
+
+* Advanced job recommendation system
+* Recruiter dashboard
+* Application tracking system
+* Email notifications
+* AI-powered job recommendations
+* Improved admin dashboard
+
+## 👨‍💻 Author
+
+**Aditya Vikram**
+
+GitHub: [@adityacodes2425](https://github.com/adityacodes2425)
+
+---
+
+⭐ If you like this project, consider giving it a star!
