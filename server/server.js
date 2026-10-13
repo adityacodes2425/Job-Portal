@@ -23,6 +23,7 @@ await connectDB();
  
 // Middlewares
 app.use(cors());
+app.post("/webhooks", express.raw({ type: "application/json" }), clerkWebhooks);
 app.use(express.json());
 app.use(clerkMiddleware());
 
@@ -35,7 +36,6 @@ app.get("/debug-sentry", function mainHandler(req, res) {
   throw new Error("My First Sentry Error");
 });
 
-app.post("/webhooks", clerkWebhooks);
 app.use('/api/company', companyRoutes);
 app.use('/api/jobs', jobRoutes);
 app.use('/api/users', userRoutes);

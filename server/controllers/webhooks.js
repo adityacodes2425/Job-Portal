@@ -7,14 +7,14 @@ export const clerkWebhooks = async (req, res) => {
     const whook = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
     // Verifying Headers
-    await whook.verify(JSON.stringify(req.body), {
+    await whook.verify(req.body, {
       "svix-id": req.headers["svix-id"],
       "svix-timestamp": req.headers["svix-timestamp"],
       "svix-signature": req.headers["svix-signature"],
     });
 
-    // Getting data from body
-    const { data, type } = req.body;
+    const { data, type } = JSON.parse(req.body.toString("utf8"));
+    console.info(`[Clerk webhook] Received verified event: ${type}`);
 
     // Different cases
     switch (type) {
@@ -28,6 +28,7 @@ export const clerkWebhooks = async (req, res) => {
         };
 
         await User.create(userData);
+        console.info("[Clerk webhook] Created user record");
         res.status(200).json({ success: true });
         break;
       }
@@ -40,22 +41,25 @@ export const clerkWebhooks = async (req, res) => {
         };
 
         await User.findByIdAndUpdate(data.id, userData);
+        console.info("[Clerk webhook] Updated user record");
         res.status(200).json({ success: true });
         break;
       }
 
       case "user.deleted": {
         await User.findByIdAndDelete(data.id);
+        console.info("[Clerk webhook] Deleted user record");
         res.status(200).json({ success: true });
         break;
       }
 
       default:
+        console.warn(`[Clerk webhook] Unsupported event type: ${type}`);
         res.status(400).json({ success: false, message: "Invalid event type" });
         break;
     }
   } catch (error) {
-    console.error("Webhook error:", error.message);
+    console.error("[Clerk webhook] Processing failed:", error.name, error.message);
     res.status(500).json({ success: false, message: "Internal Server Error" });
   }
 };
