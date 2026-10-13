@@ -170,7 +170,7 @@ const RecruiterLogin = () => {
             Don't have an account?
             <span
               className="text-blue-600 cursor-pointer"
-              onClick={(e) => setState("Sign up")}
+              onClick={() => setState("Sign up")}
             >
               Sign up
             </span>
@@ -180,13 +180,13 @@ const RecruiterLogin = () => {
             Already have an account?
             <span
               className="text-blue-600 cursor-pointer"
-              onClick={(e) => setState("Login")}
+              onClick={() => setState("Login")}
             >
               Login
             </span>
           </p>
               )}
-              <img onClick={e=>setShowRecruiterLogin(false)} className='absolute top-5 right-5 cursor-pointer' src={ assets.cross_icon} />
+              <img onClick={()=>setShowRecruiterLogin(false)} className='absolute top-5 right-5 cursor-pointer' src={ assets.cross_icon} />
       </form>
     </div>
   );

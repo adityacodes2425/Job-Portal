@@ -36,7 +36,7 @@ export const registerCompany = async (req, res) => {
     const company = await Company.create({
       name,
       email,
-      password: hashPassword,
+      password: hashPassword, 
       image: imageUpload.secure_url,
     });
 

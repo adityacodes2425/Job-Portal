@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/AppContext";
-import { assets, JobCategories, JobLocations } from "../assets/assets";
+import { assets, JobCategories, JobLocations} from "../assets/assets";
 import JobCard from "./JobCard";
 
 const JobListing = () => {
@@ -29,7 +29,7 @@ const JobListing = () => {
     const matchesLocation = job => selectedLocations.length === 0 || selectedLocations.includes(job.location);
     const matchesTitle = job => searchFilter.title === "" || job.title.toLowerCase().includes(searchFilter.title.toLowerCase());
     const matchesSearchLocation = job => searchFilter.location === "" || job.location.toLowerCase().includes(searchFilter.location.toLowerCase());
-
+ 
     const newFilteredJobs = jobs.slice().reverse().filter(
       job => matchesCategory(job) && matchesLocation(job) && matchesTitle(job) && matchesSearchLocation(job)
     );
@@ -59,7 +59,7 @@ const JobListing = () => {
                   <span className="inline-flex items-center gap-2.5 bg-blue-50 border border-blue-200 px-4 py-1.5 rounded ">
                     {searchFilter.title}
                     <img
-                      onClick={(e) =>
+                      onClick={() =>
                         setSearchFilter((prev) => ({ ...prev, title: "" }))
                       }
                       className="cursor-pointer"
@@ -71,7 +71,7 @@ const JobListing = () => {
                   <span className="ml-2 inline-flex items-center gap-2.5 bg-red-50 border border-red-200 px-4 py-1.5 rounded ">
                     {searchFilter.location}
                     <img
-                      onClick={(e) =>
+                      onClick={() =>
                         setSearchFilter((prev) => ({ ...prev, location: "" }))
                       }
                       className="cursor-pointer"
@@ -83,7 +83,7 @@ const JobListing = () => {
             </>
           )}
         <button
-          onClick={(e) => setShowFilter((prev) => !prev)}
+          onClick={() => setShowFilter((prev) => !prev)}
           className="px-6 py-1.5 rounded border border-gray-400 lg:hidden"
         >
           {showFilter ? "Close" : "Filters"}
@@ -149,7 +149,7 @@ const JobListing = () => {
               (_, index) => (
                 <a key={index} href="#job-list">
                   <button
-                    onClick={(e) => setCurrentPage(index + 1)}
+                    onClick={() => setCurrentPage(index + 1)}
                     className={`w-10 h-10 flex items-center justify-center border border-gray-300 rounded ${
                       currentPage === index + 1
                         ? "bg-blue-100 text-blue-500"

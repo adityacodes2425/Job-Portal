@@ -98,8 +98,12 @@ CLOUDINARY_API_KEY=your_cloudinary_api_key
 CLOUDINARY_API_SECRET=your_cloudinary_api_secret
 
 CLERK_SECRET_KEY=your_clerk_secret_key
+CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 JWT_SECRET=your_jwt_secret
 ```
+
+Use the same Clerk publishable key here as `VITE_CLERK_PUBLISHABLE_KEY` in
+`client/.env`. The backend needs it for Clerk's Express middleware.
 
 ### 6. Run the application
 

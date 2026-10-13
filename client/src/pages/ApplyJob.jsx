@@ -157,7 +157,7 @@ const ApplyJob = () => {
               <h2>More jobs from {jobData.companyId.name}</h2>
               {jobs
                 .filter(
-                  (job) =>
+                   (job) =>
                     job._id !== jobData._id &&
                     job.companyId._id === jobData.companyId._id
                 )

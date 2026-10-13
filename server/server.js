@@ -41,7 +41,7 @@ app.use('/api/jobs', jobRoutes);
 app.use('/api/users', userRoutes);
 
 // Port Set up
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 Sentry.setupExpressErrorHandler(app);
 
 app.listen(PORT, () => {
