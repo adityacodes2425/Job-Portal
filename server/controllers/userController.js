@@ -91,7 +91,7 @@ export const updateUserResume = async (req, res) => {
 
         if (resumeFile) {
             const resumeUpload = await clodinary.uploader.upload(resumeFile.path, {
-                resource_type: "raw",
+                resource_type: "image",
             });
 
             userData.resume = resumeUpload.secure_url;
